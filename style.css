@@ -1,1 +1,484 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f8f4ee;
+color:#333;
+overflow-x:hidden;
+}
+
+:root{
+--coffee:#3e2723;
+--gold:#d4a762;
+--cream:#f8f4ee;
+--white:#ffffff;
+}
+
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(62,39,35,0.95);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+color:var(--gold);
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--gold);
+}
+
+/* HAMBURGER */
+
+.hamburger{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+}
+
+.hamburger span{
+width:28px;
+height:3px;
+background:white;
+border-radius:5px;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:260px;
+height:100vh;
+background:var(--coffee);
+display:flex;
+flex-direction:column;
+padding-top:100px;
+transition:.4s ease;
+z-index:1001;
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+color:white;
+text-decoration:none;
+padding:15px 30px;
+font-size:18px;
+}
+
+.mobile-menu a:hover{
+background:rgba(255,255,255,.1);
+}
+
+.overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.5);
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:1000;
+}
+
+.overlay.active{
+opacity:1;
+visibility:visible;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+color:white;
+}
+
+.hero-content h1{
+font-size:4rem;
+margin-bottom:15px;
+}
+
+.hero-content p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+margin:5px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.primary-btn{
+background:var(--gold);
+color:white;
+}
+
+.secondary-btn{
+border:2px solid white;
+color:white;
+}
+
+/* SECTION */
+
+section{
+padding:90px 8%;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:2.5rem;
+color:var(--coffee);
+margin-bottom:10px;
+}
+
+/* FEATURES */
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-5px);
+}
+
+.feature-card i{
+font-size:40px;
+color:var(--gold);
+margin-bottom:15px;
+}
+
+.feature-card h3{
+margin-bottom:10px;
+color:var(--coffee);
+}
+
+/* MENU */
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.menu-card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.menu-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.menu-content{
+padding:20px;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+.gallery-grid img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+transition:.3s;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.03);
+}
+
+/* RESERVATION */
+
+.reservation-box{
+background:var(--coffee);
+padding:40px;
+border-radius:25px;
+color:white;
+}
+
+.reservation-box h2{
+margin-bottom:10px;
+}
+
+.reservation-box form{
+margin-top:20px;
+display:grid;
+gap:15px;
+}
+
+.reservation-box input,
+.reservation-box textarea{
+padding:14px;
+border:none;
+border-radius:10px;
+outline:none;
+}
+
+.reservation-box textarea{
+min-height:120px;
+resize:none;
+}
+
+.reservation-box button{
+padding:15px;
+border:none;
+border-radius:10px;
+background:var(--gold);
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+#successMessage{
+margin-top:15px;
+color:#9fff9f;
+}
+
+/* DASHBOARD */
+
+.stats{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.stat-card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+min-width:220px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.stat-card h3{
+font-size:2rem;
+color:var(--gold);
+}
+
+/* CHATBOT */
+
+.chat-toggle{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:var(--gold);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+cursor:pointer;
+z-index:1000;
+}
+
+.chat-box{
+position:fixed;
+bottom:90px;
+right:20px;
+width:330px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+display:none;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+z-index:1000;
+}
+
+.chat-box.active{
+display:block;
+}
+
+.chat-header{
+background:var(--coffee);
+color:white;
+padding:15px;
+font-weight:600;
+}
+
+.chat-body{
+height:300px;
+overflow-y:auto;
+padding:15px;
+}
+
+.bot,
+.user{
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+}
+
+.bot{
+background:#f0f0f0;
+}
+
+.user{
+background:var(--gold);
+color:white;
+text-align:right;
+}
+
+.chat-input{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+.chat-input input{
+flex:1;
+border:none;
+padding:12px;
+outline:none;
+}
+
+.chat-input button{
+border:none;
+background:var(--gold);
+color:white;
+padding:12px 15px;
+cursor:pointer;
+}
+
+/* AGENCY */
+
+.agency-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.agency-card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* FOOTER */
+
+footer{
+background:var(--coffee);
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+
+footer h3{
+color:var(--gold);
+margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.nav-links{
+display:none;
+}
+
+.hamburger{
+display:flex;
+}
+
+.hero-content h1{
+font-size:2.7rem;
+}
+
+.chat-box{
+width:90%;
+right:5%;
+}
+
+}

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karavan Coffee - Demo Website Concept</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f4ee;
+    color:#333;
+}
+
+:root{
+    --coffee:#3e2723;
+    --gold:#d4a762;
+    --cream:#f8f4ee;
+    --white:#ffffff;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(62,39,35,0.95);
+    backdrop-filter:blur(10px);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:var(--gold);
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.hero h1{
+    font-size:4rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    margin:8px;
+    transition:.3s;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:white;
+}
+
+.btn-secondary{
+    border:2px solid white;
+    color:white;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+/* SECTION */
+
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    color:var(--coffee);
+}
+
+.section-title p{
+    color:#777;
+    margin-top:10px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.feature{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.feature h3{
+    color:var(--coffee);
+    margin:15px 0;
+}
+
+/* MENU */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.menu-card{
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.menu-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.menu-content{
+    padding:20px;
+}
+
+.menu-content h3{
+    color:var(--coffee);
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+/* RESERVATION */
+
+.reservation{
+    background:var(--coffee);
+    color:white;
+    border-radius:25px;
+    padding:50px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+    margin-top:25px;
+}
+
+input{
+    padding:15px;
+    border:none;
+    border-radius:10px;
+}
+
+.submit-btn{
+    background:var(--gold);
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+}
+
+.cta-box{
+    background:white;
+    padding:50px;
+    border-radius:25px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+/* FOOTER */
+
+footer{
+    background:var(--coffee);
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.nav-links{
+    display:none;
+}
+
+}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="nav-container">
+<div class="logo">Karavan Coffee</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#reserve">Reserve</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+
+<h1>Karavan Coffee</h1>
+
+<p>
+A premium café experience designed to bring people together over exceptional coffee, fresh pastries and a warm atmosphere.
+</p>
+
+<a href="#menu" class="btn btn-primary">View Menu</a>
+
+<a href="https://wa.me/251900000000" class="btn btn-secondary">
+Order on WhatsApp
+</a>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+
+<div class="section-title">
+<h2>Why Customers Love Karavan</h2>
+<p>More than coffee. An experience.</p>
+</div>
+
+<div class="features">
+
+<div class="feature">
+<h3>☕ Specialty Coffee</h3>
+<p>Freshly brewed from carefully selected beans.</p>
+</div>
+
+<div class="feature">
+<h3>🥐 Fresh Pastries</h3>
+<p>Daily baked pastries and delicious desserts.</p>
+</div>
+
+<div class="feature">
+<h3>📶 Free Wi-Fi</h3>
+<p>Perfect environment for work and meetings.</p>
+</div>
+
+<div class="feature">
+<h3>🌿 Cozy Atmosphere</h3>
+<p>Relax, connect and enjoy every moment.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="menu">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Featured Menu</h2>
+<p>Customer favorites</p>
+</div>
+
+<div class="menu-grid">
+
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80">
+<div class="menu-content">
+<h3>Ethiopian Macchiato</h3>
+<p>Rich espresso with silky milk foam.</p>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80">
+<div class="menu-content">
+<h3>Signature Cappuccino</h3>
+<p>Balanced flavor with creamy texture.</p>
+</div>
+</div>
+
+<div class="menu-card">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80">
+<div class="menu-content">
+<h3>Fresh Pastries</h3>
+<p>Croissants, cakes and bakery selections.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="gallery">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Gallery</h2>
+<p>A glimpse into the Karavan experience</p>
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80">
+
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80">
+
+</div>
+
+</div>
+</section>
+
+<section id="reserve">
+
+<div class="container">
+
+<div class="reservation">
+
+<h2>Reserve a Table</h2>
+
+<p>Book your next coffee meeting or gathering.</p>
+
+<form class="form-grid">
+
+<input type="text" placeholder="Full Name">
+
+<input type="tel" placeholder="Phone Number">
+
+<input type="date">
+
+<input type="time">
+
+<input type="number" placeholder="Guests">
+
+<button class="submit-btn">
+Request Reservation
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div class="container">
+
+<div class="cta-box">
+
+<h2>Ready For Your Next Coffee?</h2>
+
+<p style="margin:15px 0;">
+Chat with us directly and place your order instantly.
+</p>
+
+<a href="https://wa.me/251900000000" class="btn btn-primary">
+Chat on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<h3>Karavan Coffee</h3>
+<p>Demo Website Concept Created For Presentation Purposes</p>
+</footer>
+
+</body>
+</html>

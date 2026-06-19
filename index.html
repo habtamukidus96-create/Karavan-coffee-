@@ -15,19 +15,22 @@
   font-family:'Poppins',sans-serif;
 }
 
-html{scroll-behavior:smooth;}
+html{
+  scroll-behavior:smooth;
+}
 
 body{
   background:#f8f4ee;
-  color:#222;
 }
 
+/* COLORS */
 :root{
   --coffee:#3e2723;
   --gold:#d4a762;
+  --cream:#f8f4ee;
 }
 
-/* NAV */
+/* NAVBAR */
 nav{
   position:fixed;
   top:0;
@@ -38,7 +41,7 @@ nav{
 }
 
 .nav-container{
-  max-width:1100px;
+  max-width:1200px;
   margin:auto;
   padding:15px 20px;
   display:flex;
@@ -49,6 +52,89 @@ nav{
 .logo{
   color:var(--gold);
   font-weight:700;
+  font-size:1.4rem;
+}
+
+/* DESKTOP MENU */
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  font-weight:500;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+/* HAMBURGER */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  gap:5px;
+}
+
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:white;
+  border-radius:5px;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:var(--coffee);
+  padding:60px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  transition:0.4s ease;
+  z-index:2000;
+}
+
+.mobile-menu a{
+  color:white;
+  text-decoration:none;
+  font-size:18px;
+  padding:10px;
+  border-radius:8px;
+}
+
+.mobile-menu a:hover{
+  background:rgba(255,255,255,0.1);
+}
+
+.mobile-menu.active{
+  right:0;
+}
+
+/* OVERLAY */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+  z-index:1500;
+}
+
+.overlay.active{
+  opacity:1;
+  visibility:visible;
 }
 
 /* HERO */
@@ -56,37 +142,51 @@ nav{
   height:100vh;
   background:
   linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085');
+  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80');
   background-size:cover;
+  background-position:center;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
   color:white;
   padding:20px;
 }
 
-.hero h1{font-size:3rem;}
+.hero h1{
+  font-size:3.5rem;
+}
+
+.hero p{
+  margin:15px 0;
+}
 
 .btn{
-  padding:12px 22px;
+  display:inline-block;
+  padding:12px 25px;
   border-radius:30px;
   text-decoration:none;
-  display:inline-block;
   margin:5px;
   font-weight:600;
 }
 
-.primary{background:var(--gold);color:white;}
-.outline{border:2px solid white;color:white;}
+.btn-primary{
+  background:var(--gold);
+  color:white;
+}
 
-/* SECTION */
+.btn-outline{
+  border:2px solid white;
+  color:white;
+}
+
+/* SECTIONS */
 section{
   padding:80px 20px;
 }
 
 .container{
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
 }
 
@@ -94,78 +194,48 @@ section{
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:15px;
+  gap:20px;
 }
 
-.card{
+.feature{
   background:white;
   padding:20px;
   border-radius:15px;
   text-align:center;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 /* MENU */
-.menu{
+.menu-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:20px;
 }
 
-.item{
+.menu-card{
   background:white;
   border-radius:15px;
   overflow:hidden;
 }
 
-.item img{
+.menu-card img{
   width:100%;
-  height:180px;
+  height:200px;
   object-fit:cover;
 }
 
-.item div{
+.menu-card div{
   padding:15px;
-}
-
-/* LEAD FORM (IMPORTANT PART) */
-.lead-box{
-  background:var(--coffee);
-  color:white;
-  padding:40px;
-  border-radius:20px;
-}
-
-input, textarea{
-  width:100%;
-  padding:12px;
-  margin:8px 0;
-  border:none;
-  border-radius:10px;
-}
-
-button{
-  background:var(--gold);
-  border:none;
-  padding:12px 20px;
-  color:white;
-  font-weight:600;
-  border-radius:10px;
-  cursor:pointer;
-  width:100%;
-}
-
-/* RESULT BOX */
-#result{
-  margin-top:15px;
-  padding:10px;
-  background:rgba(255,255,255,0.1);
-  border-radius:10px;
 }
 
 /* CTA */
 .cta{
   text-align:center;
+}
+
+.cta-box{
+  background:white;
+  padding:40px;
+  border-radius:20px;
 }
 
 /* FOOTER */
@@ -175,129 +245,145 @@ footer{
   text-align:center;
   padding:30px;
 }
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+.nav-links{
+  display:none;
+}
+
+.hamburger{
+  display:flex;
+}
+
+.hero h1{
+  font-size:2.5rem;
+}
+}
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
 <div class="nav-container">
 <div class="logo">Karavan Coffee</div>
+
+<div class="nav-links">
+<a href="#top">Home</a>
+<a href="#menu">Menu</a>
+<a href="mailto:karavan@example.com">Email</a>
+<a href="https://wa.me/251900000000">WhatsApp</a>
+</div>
+
+<div class="hamburger" onclick="openMenu()">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
 </div>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+<a href="#top" onclick="closeMenu()">Home</a>
+<a href="#menu" onclick="closeMenu()">Menu</a>
+<a href="mailto:karavan@example.com" onclick="closeMenu()">Email</a>
+<a href="https://wa.me/251900000000" onclick="closeMenu()">WhatsApp</a>
+</div>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
 <div>
 <h1>Karavan Coffee</h1>
-<p>Order coffee & reserve tables instantly</p>
+<p>Premium coffee experience in Addis Ababa</p>
 
-<a class="btn primary" href="#lead">Book Now</a>
-<a class="btn outline" href="https://wa.me/251900000000">WhatsApp</a>
+<a class="btn btn-primary" href="#menu">View Menu</a>
+<a class="btn btn-outline" href="https://wa.me/251900000000">Order</a>
 </div>
 </section>
 
 <!-- FEATURES -->
 <section>
 <div class="container">
+<h2>Why Customers Love Us</h2>
+<br>
+
 <div class="features">
-
-<div class="card">☕ Fresh Coffee</div>
-<div class="card">🥐 Bakery</div>
-<div class="card">📶 WiFi</div>
-<div class="card">🌿 Cozy Space</div>
-
+<div class="feature">☕ Fresh Coffee</div>
+<div class="feature">🥐 Bakery Items</div>
+<div class="feature">📶 Free WiFi</div>
+<div class="feature">🌿 Cozy Space</div>
 </div>
+
 </div>
 </section>
 
 <!-- MENU -->
-<section>
+<section id="menu">
 <div class="container">
-<h2>Menu</h2><br>
+<h2>Menu</h2>
+<br>
 
-<div class="menu">
+<div class="menu-grid">
 
-<div class="item">
+<div class="menu-card">
 <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-<div>Macchiato</div>
+<div>
+<h3>Macchiato</h3>
+</div>
 </div>
 
-<div class="item">
+<div class="menu-card">
 <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
-<div>Cappuccino</div>
+<div>
+<h3>Cappuccino</h3>
+</div>
 </div>
 
-<div class="item">
+<div class="menu-card">
 <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff">
-<div>Pastries</div>
+<div>
+<h3>Pastries</h3>
+</div>
 </div>
 
 </div>
-</div>
-</section>
-
-<!-- LEAD GENERATION SYSTEM -->
-<section id="lead">
-<div class="container">
-
-<div class="lead-box">
-
-<h2>Reserve a Table / Order Coffee</h2>
-<p>Send your request and we will contact you instantly.</p>
-
-<form onsubmit="submitLead(event)">
-
-<input type="text" id="name" placeholder="Full Name" required>
-
-<input type="tel" id="phone" placeholder="Phone Number" required>
-
-<input type="date" id="date">
-
-<textarea id="message" placeholder="Your order or message"></textarea>
-
-<button type="submit">Send Request</button>
-
-</form>
-
-<div id="result"></div>
-
-</div>
-
 </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-<h2>Fast Ordering Available on WhatsApp</h2>
+<div class="container">
+<div class="cta-box">
+<h2>Ready for Coffee?</h2>
+<p>Order or visit us today</p>
 <br>
-<a class="btn primary" href="https://wa.me/251900000000">Chat Now</a>
+<a class="btn btn-primary" href="https://wa.me/251900000000">WhatsApp</a>
+<a class="btn btn-outline" href="mailto:karavan@example.com" style="color:black;border-color:black;">Email</a>
+</div>
+</div>
 </section>
 
 <footer>
-<p>Demo Website Concept - Karavan Coffee</p>
+<p>Karavan Coffee - Demo Website Concept</p>
 </footer>
 
 <script>
-function submitLead(e){
-  e.preventDefault();
+function openMenu(){
+  document.getElementById("mobileMenu").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+}
 
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let date = document.getElementById("date").value;
-  let message = document.getElementById("message").value;
-
-  let text = 
-  "New Lead Received:%0A" +
-  "Name: " + name + "%0A" +
-  "Phone: " + phone + "%0A" +
-  "Date: " + date + "%0A" +
-  "Message: " + message;
-
-  let whatsappURL = "https://wa.me/251900000000?text=" + text;
-
-  document.getElementById("result").innerHTML =
-  "✔ Request ready — <a href='" + whatsappURL + "' target='_blank' style='color:yellow;'>Send on WhatsApp</a>";
+function closeMenu(){
+  document.getElementById("mobileMenu").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
 }
 </script>
 

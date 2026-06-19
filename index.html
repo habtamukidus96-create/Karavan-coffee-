@@ -3,389 +3,535 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karavan Coffee - Premium Demo</title>
+
+<title>Karavan Coffee | Premium Experience</title>
+
+<link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#f8f4ee;
-}
-
-/* COLORS */
-:root{
-  --coffee:#3e2723;
-  --gold:#d4a762;
-  --cream:#f8f4ee;
-}
-
-/* NAVBAR */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:rgba(62,39,35,0.95);
-  z-index:1000;
-  backdrop-filter:blur(10px);
-}
-
-.nav-container{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  color:var(--gold);
-  font-weight:700;
-  font-size:1.4rem;
-}
-
-/* DESKTOP MENU */
-.nav-links{
-  display:flex;
-  gap:20px;
-}
-
-.nav-links a{
-  color:white;
-  text-decoration:none;
-  font-weight:500;
-}
-
-.nav-links a:hover{
-  color:var(--gold);
-}
-
-/* HAMBURGER */
-.hamburger{
-  display:none;
-  flex-direction:column;
-  cursor:pointer;
-  gap:5px;
-}
-
-.hamburger span{
-  width:25px;
-  height:3px;
-  background:white;
-  border-radius:5px;
-}
-
-/* MOBILE MENU */
-.mobile-menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:260px;
-  height:100vh;
-  background:var(--coffee);
-  padding:60px 20px;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
-  transition:0.4s ease;
-  z-index:2000;
-}
-
-.mobile-menu a{
-  color:white;
-  text-decoration:none;
-  font-size:18px;
-  padding:10px;
-  border-radius:8px;
-}
-
-.mobile-menu a:hover{
-  background:rgba(255,255,255,0.1);
-}
-
-.mobile-menu.active{
-  right:0;
-}
-
-/* OVERLAY */
-.overlay{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  opacity:0;
-  visibility:hidden;
-  transition:0.3s;
-  z-index:1500;
-}
-
-.overlay.active{
-  opacity:1;
-  visibility:visible;
-}
-
-/* HERO */
-.hero{
-  height:100vh;
-  background:
-  linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:white;
-  padding:20px;
-}
-
-.hero h1{
-  font-size:3.5rem;
-}
-
-.hero p{
-  margin:15px 0;
-}
-
-.btn{
-  display:inline-block;
-  padding:12px 25px;
-  border-radius:30px;
-  text-decoration:none;
-  margin:5px;
-  font-weight:600;
-}
-
-.btn-primary{
-  background:var(--gold);
-  color:white;
-}
-
-.btn-outline{
-  border:2px solid white;
-  color:white;
-}
-
-/* SECTIONS */
-section{
-  padding:80px 20px;
-}
-
-.container{
-  max-width:1100px;
-  margin:auto;
-}
-
-/* FEATURES */
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.feature{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-}
-
-/* MENU */
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.menu-card{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-}
-
-.menu-card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-
-.menu-card div{
-  padding:15px;
-}
-
-/* CTA */
-.cta{
-  text-align:center;
-}
-
-.cta-box{
-  background:white;
-  padding:40px;
-  border-radius:20px;
-}
-
-/* FOOTER */
-footer{
-  background:var(--coffee);
-  color:white;
-  text-align:center;
-  padding:30px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-
-.nav-links{
-  display:none;
-}
-
-.hamburger{
-  display:flex;
-}
-
-.hero h1{
-  font-size:2.5rem;
-}
-}
-</style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-<div class="nav-container">
-<div class="logo">Karavan Coffee</div>
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="logo">
+Karavan Coffee
+</div>
 
 <div class="nav-links">
-<a href="#top">Home</a>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
 <a href="#menu">Menu</a>
-<a href="mailto:karavan@example.com">Email</a>
-<a href="https://wa.me/251900000000">WhatsApp</a>
-</div>
 
-<div class="hamburger" onclick="openMenu()">
-<span></span>
-<span></span>
-<span></span>
-</div>
+<a href="#gallery">Gallery</a>
+
+<a href="#reservation">Reserve</a>
+
+<a href="#agency">Kidus Digital</a>
 
 </div>
+
+<div class="hamburger" id="hamburger">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
 </nav>
 
 <!-- MOBILE MENU -->
+
 <div class="mobile-menu" id="mobileMenu">
-<a href="#top" onclick="closeMenu()">Home</a>
-<a href="#menu" onclick="closeMenu()">Menu</a>
-<a href="mailto:karavan@example.com" onclick="closeMenu()">Email</a>
-<a href="https://wa.me/251900000000" onclick="closeMenu()">WhatsApp</a>
+
+<a href="#home">Home</a>
+
+<a href="#menu">Menu</a>
+
+<a href="mailto:habtamukidus96@gmail.com">
+Email
+</a>
+
+<a href="https://wa.me/251912643473">
+WhatsApp
+</a>
+
 </div>
 
-<!-- OVERLAY -->
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="overlay" id="overlay"></div>
 
 <!-- HERO -->
-<section class="hero" id="top">
-<div>
-<h1>Karavan Coffee</h1>
-<p>Premium coffee experience in Addis Ababa</p>
 
-<a class="btn btn-primary" href="#menu">View Menu</a>
-<a class="btn btn-outline" href="https://wa.me/251900000000">Order</a>
+<section class="hero" id="home">
+
+<div class="hero-content">
+
+<h1>
+Karavan Coffee
+</h1>
+
+<p>
+Premium Coffee. Fresh Pastries.
+Relaxed Atmosphere.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#menu" class="btn primary-btn">
+View Menu
+</a>
+
+<a href="#reservation" class="btn secondary-btn">
+Reserve Table
+</a>
+
 </div>
+
+</div>
+
 </section>
 
-<!-- FEATURES -->
-<section>
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
 <div class="container">
-<h2>Why Customers Love Us</h2>
-<br>
+
+<div class="section-title">
+
+<h2>
+Why Customers Love Karavan
+</h2>
+
+<p>
+More than coffee. An experience.
+</p>
+
+</div>
 
 <div class="features">
-<div class="feature">☕ Fresh Coffee</div>
-<div class="feature">🥐 Bakery Items</div>
-<div class="feature">📶 Free WiFi</div>
-<div class="feature">🌿 Cozy Space</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-mug-hot"></i>
+
+<h3>
+Specialty Coffee
+</h3>
+
+<p>
+Freshly brewed from carefully selected beans.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-cake-candles"></i>
+
+<h3>
+Fresh Pastries
+</h3>
+
+<p>
+Daily baked pastries and desserts.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-wifi"></i>
+
+<h3>
+Free Wi-Fi
+</h3>
+
+<p>
+Perfect for work, study and meetings.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<i class="fa-solid fa-leaf"></i>
+
+<h3>
+Relaxing Atmosphere
+</h3>
+
+<p>
+Comfortable seating and cozy environment.
+</p>
+
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 <!-- MENU -->
-<section id="menu">
+
+<section class="menu-section" id="menu">
+
 <div class="container">
-<h2>Menu</h2>
-<br>
+
+<div class="section-title">
+
+<h2>
+Featured Menu
+</h2>
+
+<p>
+Customer favorites
+</p>
+
+</div>
 
 <div class="menu-grid">
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-<div>
-<h3>Macchiato</h3>
+
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=80">
+
+<div class="menu-content">
+
+<h3>
+Ethiopian Macchiato
+</h3>
+
+<p>
+Rich espresso with silky milk foam.
+</p>
+
 </div>
+
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
-<div>
-<h3>Cappuccino</h3>
+
+<img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80">
+
+<div class="menu-content">
+
+<h3>
+Signature Cappuccino
+</h3>
+
+<p>
+Balanced flavor and creamy texture.
+</p>
+
 </div>
+
 </div>
 
 <div class="menu-card">
-<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff">
-<div>
-<h3>Pastries</h3>
-</div>
+
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80">
+
+<div class="menu-content">
+
+<h3>
+Fresh Pastries
+</h3>
+
+<p>
+Croissants, cakes and bakery selections.
+</p>
+
 </div>
 
 </div>
+
 </div>
+
+</div>
+
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- GALLERY -->
+
+<section class="gallery-section" id="gallery">
+
 <div class="container">
-<div class="cta-box">
-<h2>Ready for Coffee?</h2>
-<p>Order or visit us today</p>
-<br>
-<a class="btn btn-primary" href="https://wa.me/251900000000">WhatsApp</a>
-<a class="btn btn-outline" href="mailto:karavan@example.com" style="color:black;border-color:black;">Email</a>
+
+<div class="section-title">
+
+<h2>
+Gallery
+</h2>
+
+<p>
+A glimpse into the Karavan experience
+</p>
+
 </div>
+
+<div class="gallery-grid">
+
+<img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80">
+
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80">
+
 </div>
+
+</div>
+
 </section>
+
+<!-- RESERVATION -->
+
+<section class="reservation-section" id="reservation">
+
+<div class="container">
+
+<div class="reservation-box">
+
+<h2>
+Reserve A Table
+</h2>
+
+<p>
+Book your next coffee meeting or gathering.
+</p>
+
+<form id="reservationForm">
+
+<input
+type="text"
+placeholder="Full Name"
+required
+id="name">
+
+<input
+type="tel"
+placeholder="Phone Number"
+required
+id="phone">
+
+<input
+type="date"
+id="date">
+
+<input
+type="time"
+id="time">
+
+<input
+type="number"
+placeholder="Guests"
+id="guests">
+
+<textarea
+placeholder="Special Request"
+id="message"></textarea>
+
+<button type="submit">
+Send Reservation
+</button>
+
+</form>
+
+<div id="successMessage"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DASHBOARD -->
+
+<section class="dashboard-section">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Reservation Dashboard
+</h2>
+
+<p>
+Demo business dashboard
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+
+<h3 id="totalReservations">
+0
+</h3>
+
+<p>
+Reservations
+</p>
+
+</div>
+
+<div class="stat-card">
+
+<h3 id="totalLeads">
+0
+</h3>
+
+<p>
+Leads
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AI CHAT -->
+
+<div class="chat-toggle" id="chatToggle">
+
+💬
+
+</div>
+
+<div class="chat-box" id="chatBox">
+
+<div class="chat-header">
+
+Kidus Digital Assistant
+
+</div>
+
+<div class="chat-body" id="chatBody">
+
+<div class="bot">
+Hello 👋 How can I help you?
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="userInput"
+placeholder="Type message...">
+
+<button id="sendBtn">
+Send
+</button>
+
+</div>
+
+</div>
+
+<!-- AGENCY SECTION -->
+
+<section class="agency-section" id="agency">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Built By Kidus Digital
+</h2>
+
+<p>
+Websites • AI Solutions • Business Automation
+</p>
+
+</div>
+
+<div class="agency-grid">
+
+<div class="agency-card">
+
+<h3>
+Starter Website
+</h3>
+
+<p>
+Professional business website.
+</p>
+
+</div>
+
+<div class="agency-card">
+
+<h3>
+Business Growth
+</h3>
+
+<p>
+Website + WhatsApp lead system.
+</p>
+
+</div>
+
+<div class="agency-card">
+
+<h3>
+Monthly Management
+</h3>
+
+<p>
+Website maintenance and support.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-<p>Karavan Coffee - Demo Website Concept</p>
+
+<h3>
+Kidus Digital
+</h3>
+
+<p>
+Websites • AI Solutions • Business Automation
+</p>
+
+<p>
+📞 0912643473
+</p>
+
+<p>
+📧 habtamukidus96@gmail.com
+</p>
+
 </footer>
 
-<script>
-function openMenu(){
-  document.getElementById("mobileMenu").classList.add("active");
-  document.getElementById("overlay").classList.add("active");
-}
-
-function closeMenu(){
-  document.getElementById("mobileMenu").classList.remove("active");
-  document.getElementById("overlay").classList.remove("active");
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
